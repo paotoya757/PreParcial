@@ -35,6 +35,10 @@ define(['model/_estudianteModel'], function() {
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
+            if((parseInt(attrs.puntosCalidad)/parseInt(attrs.creditos)) < 3,24)
+            {
+                validationMessage = "El promedio debe ser mayor de 3,25."; 
+            }
             if(validationMessage.length>0){
                return validationMessage;
             }
