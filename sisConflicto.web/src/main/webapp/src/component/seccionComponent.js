@@ -35,11 +35,12 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         model: App.Model.SeccionModel,
         listModel: App.Model.SeccionList,
         controller : App.Controller.SeccionController,
-        posInit:function(){
+        postInit:function(){
             var self = this;
-            this.addButton({name: "MostrarCupos", icon: "glyphicon-question-sign", }, function() {
+            self.addButton({name: "Cupos", icon: "glyphicon-question-sign"}, function() {
                  self.componentController.displayResults();
             });
+            this.toolbarModel.set("showCupos",true);
         }
     });
     return App.Component.SeccionComponent;

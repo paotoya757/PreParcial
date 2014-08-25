@@ -33,13 +33,10 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         model: App.Model.CursoModel,
         listModel: App.Model.CursoList,
         controller : App.Controller.CursoController,
-        posInit:function(){
+        postInit:function(){
             var self = this;
             this.toolbarModel.set('showPrint', false);
             this.toolbarModel.set('showSearch', false);
-            this.addButton({name: "prooof", icon: "glyphicon-question-sign" }, function() {
-                 self.componentController.prueba();
-            });
         }
     });
     return App.Component.CursoComponent;

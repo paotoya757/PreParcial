@@ -41,7 +41,7 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
         },
        _renderC:function(){
            var self = this;
-           this.$el.slideUpo("fast",function(){
+           this.$el.slideUp("fast",function(){
                var x = self.seccionCuposModelList;
                self.$el.html(self.listSeccionCuposTemplate({section: x.models})); 
                self.$el.slideDown("fast");
