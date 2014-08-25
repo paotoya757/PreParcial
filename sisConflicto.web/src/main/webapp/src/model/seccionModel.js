@@ -35,6 +35,10 @@ define(['model/_seccionModel'], function() {
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
+            if(!attrs.profesor_seccionId)
+            {
+             validationMessage = "La seccion debe tener un profesor asignado.";
+            }
             if(validationMessage.length>0){
                return validationMessage;
             }
