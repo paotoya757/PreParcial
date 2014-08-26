@@ -82,16 +82,26 @@
             </thead>
             <tbody>
                <% _.each(sections,function(sec) { %>
-					<% var nomb = s.getDisplay('name');  %>
-                    <% var cupos = s.getDisplay('cuposDisponible');  %>
-                    <% var cuposMax = s.getDisplay('cuposMaximo');  %>
-					<% if( cupos > cuposMax ){ %>
+					<% var nomb = sec.getDisplay("name");  %>
+                    <% var cuposDisp = sec.getDisplay("cuposDisponible");  %>
+                    <% var cuposMax = sec.getDisplay("cuposMaximo");  %>
+					<% if( cuposDisp < 0  ){ %>
                         <tr class="danger"> 
                             <td> <%= htmlEncode(nomb) %> </td>
-                            <td> <%= htmlEncode(cupos) %> </td>
+                            <td> <%= htmlEncode(cuposDisp) %> </td>
                         </tr>
-                    <%  } %>
-
+					<% } else if(cuposDisp >= 0.8*cuposMax) { %>
+						<tr class="warning"> 
+                            <td> <%= htmlEncode(nomb) %> </td>
+                            <td> <%= htmlEncode(cuposDisp) %> </td>
+                        </tr>
+					<%} else {%>
+						<tr> 
+                            <td> <%= htmlEncode(nomb) %> </td>
+                            <td> <%= htmlEncode(cuposDisp) %> </td>
+                        </tr>
+					<%}%>
+				
 			   <% }); %>
             </tbody>
         </table>

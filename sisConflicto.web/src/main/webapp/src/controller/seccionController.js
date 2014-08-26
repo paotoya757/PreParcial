@@ -43,7 +43,7 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
            var self = this;
            this.$el.slideUp("fast",function(){
                var x = self.seccionCuposModelList;
-               self.$el.html(self.listSeccionCuposTemplate({section: x.models})); 
+               self.$el.html(self.listSeccionCuposTemplate({sections: x.models})); 
                self.$el.slideDown("fast");
            });
        },
@@ -60,14 +60,16 @@ define(['controller/_seccionController','delegate/seccionDelegate'], function() 
                    this.seccionModelList=new this.listModelClass;
                }
                
-               this.seccionModelList.fecth({
+               this.seccionModelList.fetch({
                    data:data,
                    success:function(){
                        var elementos = self.seccionModelList.models;
                        self.seccionCuposModelList = new App.Model.SeccionCuposDisponibleModelList;
                        _.each ( elementos , function(d){
+                           var nombre = d.attributes.name;
+                           var cupMax = d.attributes.cupoMaximo;
                            var cuposDisp = ""+(parseInt(d.attributes.cupoMaximo)-parseInt(d.attributes.inscritos));
-                           var model = new App.Model.seccionCuposDisponibleModel({name:d.attributes.name,cuposDisponible:cuposDisp,cuposMaximo:d.attributes.cupoMaximo});
+                           var model = new App.Model.SeccionCuposDisponibleModel({name:nombre,cuposDisponible:cuposDisp,cuposMaximo:cupMax});
                            self.seccionCuposModelList.models.push(model);
                        });
                        self._renderC(params);
