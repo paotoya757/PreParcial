@@ -37,6 +37,12 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         controller : App.Controller.SeccionController,
         postInit:function(){
             var self = this;
+            self.toolbarModel.set('createName', 'Crear');
+            self.toolbarModel.set('refreshName', 'Refrescar');
+            self.toolbarModel.set('saveName', 'Guardar');
+            self.toolbarModel.set('cancelName','Cancelar');
+            self.toolbarModel.set('showPrint', false);
+            self.toolbarModel.set('showSearch', false);
             self.addButton({name: "Cupos", icon: "glyphicon-question-sign"}, function() {
                  self.componentController.displayResults();
             });

@@ -33,7 +33,7 @@ define(['model/_estudianteModel'], function() {
  	validate: function(attrs,options){
             var validationMessage = "";
             if(!attrs.name){
-                validationMessage = "The name can't be empty.";
+                validationMessage = "El nombre debe ser diferente de vacio.";
             }
             if((parseInt(attrs.puntosCalidad)/parseInt(attrs.creditos)) < 3,24)
             {

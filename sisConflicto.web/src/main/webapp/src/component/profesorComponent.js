@@ -32,7 +32,16 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         name: 'profesor',
         model: App.Model.ProfesorModel,
         listModel: App.Model.ProfesorList,
-        controller : App.Controller.ProfesorController
+        controller : App.Controller.ProfesorController,
+        postInit:function(){
+            var self = this;
+            self.toolbarModel.set('createName', 'Crear');
+            self.toolbarModel.set('refreshName', 'Refrescar');
+            self.toolbarModel.set('saveName', 'Guardar');
+            self.toolbarModel.set('cancelName','Cancelar');
+            self.toolbarModel.set('showPrint', false);
+            self.toolbarModel.set('showSearch', false);
+        }
     });
     return App.Component.ProfesorComponent;
 });

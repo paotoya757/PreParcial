@@ -33,7 +33,7 @@ define(['model/_profesorModel'], function() {
  	validate: function(attrs,options){
             var validationMessage = "";
             if(!attrs.name){
-                validationMessage = "The name can't be empty.";
+                validationMessage = "El nombre debe ser diferente de vacio.";
             }
             if(parseInt(attrs.aniosExperiencia) < 5)
             {
