@@ -45,7 +45,7 @@ define(['controller/_profesorController','delegate/profesorDelegate'], function(
             var fechaVinc = params.fechaVinculacion;
             var aniosVinc = self.darAniosVinculacion(fechaVinc) ; 
             var aniosExp = parseInt(params.aniosExperiencia) ;
-            var numPub = parseInt(params.numPublicacion) ;
+            var numPub = parseInt(params.numPublicaciones) ;
             
             var status = "de PLANTA";
             if( aniosExp > 20 || numPub >= 3*aniosVinc ){
