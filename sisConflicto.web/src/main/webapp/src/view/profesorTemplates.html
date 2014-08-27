@@ -3,6 +3,7 @@
     <!-- Default panel contents -->
     <table class="table striped">
     <thead>
+        <u> TEST # 4</u>
     <tr>
 		 <th>Name</th>
 		 <th>Anios Experiencia</th>
@@ -15,19 +16,26 @@
     <tbody>
     <% _.each(profesors, function(profesor) { %>
     <tr>
-		<td><%= htmlEncode(profesor.getDisplay('name')) %></td>
-		<td><%= htmlEncode(profesor.getDisplay('aniosExperiencia')) %></td>
-		<td><%= htmlEncode(profesor.getDisplay('numPublicaciones')) %></td>
-		<td><%= htmlEncode(profesor.getDisplay('fechaVinculacion')) %></td>
-		<td><a onclick="Backbone.trigger('<%= componentId %>-profesor-show-status',{name:<%= htmlEncode(profesor.getDisplay('name')) %> ,fechaVinculacion: <%= htmlEncode(profesor.getDisplay('fechaVinculacion'))%> , numPublicaciones: <%= htmlEncode(profesor.getDisplay('numPublicaciones')) %> , aniosExperiencia: <%= htmlEncode(profesor.getDisplay('aniosExperiencia')) %> }); return false;" >Ver Status</a></td>
-    <td>
-    <% if(showEdit) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-profesor-edit',{id:<%= profesor.id %>}); return false" >Edit</a> |
-	<% } %> 
-	<% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-profesor-delete',{id:<%= profesor.id %>}); return false" >Delete</a> 
-	<% } %>    
-	</td>
+                <% var x1 = profesor.getDisplay('name'); %>
+                <% var x2 = profesor.getDisplay('aniosExperiencia'); %>
+                <% var x3 = profesor.getDisplay('numPublicaciones'); %>
+                <% var x4= profesor.get('fechaVinculacion');   %>
+                <% var y4 = Date.parse(x4.toString()) ;%>
+                
+		<td><%= htmlEncode(x1) %></td>
+		<td><%= htmlEncode(x2) %></td>
+		<td><%= htmlEncode(x3) %></td>
+		<td><%= htmlEncode(x4) %></td>
+		<td><a onclick="Backbone.trigger('<%= componentId %>-sport-show-average',{aniosExperiencia:<%= htmlEncode(x2)%>,numPublicaciones:<%= htmlEncode(x3)%>,fechaVinculacion:'<%= htmlEncode(x4)%>'   } ); return false;" >Ver Status</a></td>
+		
+                <td>
+		<% if(showEdit) {%>
+		<a onclick="Backbone.trigger('<%= componentId %>-profesor-edit',{id:<%= profesor.id %>}); return false" >Edit</a> |
+		<% } %> 
+		<% if(showDelete) {%>
+		<a onclick="Backbone.trigger('<%= componentId %>-profesor-delete',{id:<%= profesor.id %>}); return false" >Delete</a> 
+		<% } %>    
+		</td>
     </tr>
     <% }); %>
     </tbody>

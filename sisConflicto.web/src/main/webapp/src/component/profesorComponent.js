@@ -41,8 +41,9 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
             self.toolbarModel.set('cancelName','Cancelar');
             self.toolbarModel.set('showPrint', false);
             self.toolbarModel.set('showSearch', false);
-            Backbone.on(self.componentId + '-profesor-show-status', function(params) {
-                self.componentController.calcularStatus(params);
+            Backbone.on(self.componentId + '-sport-show-average', function(params)  {
+                
+                 self.componentController.calcularStatus(params);
             });
         }
     });

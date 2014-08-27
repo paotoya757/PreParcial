@@ -42,6 +42,9 @@ define(['model/_profesorModel'], function() {
             if(validationMessage.length>0){
                return validationMessage;
             }
+        },
+        getFechaVinculacion:function(){
+            return this.get('fechaVinculacion');
         }
 
     });

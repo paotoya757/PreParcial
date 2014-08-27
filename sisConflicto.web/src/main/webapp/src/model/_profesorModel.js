@@ -43,7 +43,9 @@ define([], function() {
         },
         getDisplay: function(name) {
              if(name=='fechaVinculacion'){
+                  console.log(this.get(name))
                    var dateConverter = App.Utils.Converter.date;
+                   console.log(dateConverter.unserialize(this.get('fechaVinculacion'), this));
                    return dateConverter.unserialize(this.get('fechaVinculacion'), this);
              }
          return this.get(name);

@@ -31,20 +31,21 @@ define(['controller/_profesorController','delegate/profesorDelegate'], function(
     App.Controller.ProfesorController = App.Controller._ProfesorController.extend({
         calcularStatus:function(params){
            
-            var dateparts = params.fechaVinculacion.split("/");
-            var fechaVinc = new Date(dateparts[2], (dateparts[1]-1), dateparts[0]);
-            
-            var aniosVinc = Math.floor(fechaVinc/(3600*24*365*1000));
+            var hoy = new Date();
+            var fechaVinc = params.fechaVinculacion;
+            var dateparts = fechaVinc.split("/");
+            var dateVinc = new Date(dateparts[2], (dateparts[1]-1), dateparts[0]);
+            var aniosVinc = Math.floor(Math.abs(hoy-dateVinc)/(3600*24*365*1000)); 
             var aniosExp = parseInt(params.aniosExperiencia) ;
-            var numPub = parseInt(params.numPublicaciones) ;
+            var numPub = parseInt(params.numPublicacion) ;
             
             var status = "de PLANTA";
             if( aniosExp > 20 || numPub >= 3*aniosVinc ){
                 status = "TITULAR";
-            }else if( (aniosExp<=10 && aniosExpZ<=20) || numPub >= 2*aniosVinc ){
+            }else if( (aniosExp<=10 && aniosExp<=20) || numPub >= 2*aniosVinc ){
                 status = "ASISTENTE";
             }
-            alert(params.name+" es Profesor "+status);
+            alert("El man es Profesor "+status);
         }
     });
     return App.Controller.ProfesorController;
