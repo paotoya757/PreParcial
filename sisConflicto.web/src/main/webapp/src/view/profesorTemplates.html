@@ -3,7 +3,7 @@
     <!-- Default panel contents -->
     <table class="table striped">
     <thead>
-        <u> TEST # 4</u>
+        <u> TEST # 6</u>
     <tr>
 		 <th>Name</th>
 		 <th>Anios Experiencia</th>
@@ -47,7 +47,7 @@
     <div class="form-group">
     <form role="form" id="<%= componentId %>-profesorForm">
     <% if(profesor.id) {%>
-    <input type="hidden" name="id" value="<%= profesor.id %>"/>
+    <input type="hidden" name="id" value="<%= profesor.id %>"/ >
     <% }%>
 		<div class="form-group" >
 		<label for="name">Name</label>
@@ -72,3 +72,31 @@
     </form>
     </div>
 </script> 
+
+<script type ="text/template" id="profesorVinculationList">
+    <div class="panel panel-default">
+    <!-- Default panel contents -->
+        <table class="table striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Anios de vinculacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% _.each(profesors, function (p) {%>
+                    <%var color = ""; %>
+                    <%var nomb = p.getDisplay('name'); %>
+                    <%var yrs = p.getDisplay('aniosVinculacion');%>
+                    <%if(yrs==5 || yrs==10 || yrs==20 || yrs==35){%>
+                        <%color="success";%>
+                    <%}%>
+                    <tr class="<%=color%>">
+                        <td> <%= htmlEncode(nomb)%></td>
+                        <td> <%= htmlEncode(yrs)%></td>
+                    </tr>
+                <% });%>
+            </tbody>
+        </table>
+    </div>
+</script>
