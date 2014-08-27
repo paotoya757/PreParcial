@@ -50,7 +50,7 @@ define(['controller/_profesorController','delegate/profesorDelegate'], function(
             var status = "de PLANTA";
             if( aniosExp > 20 || numPub >= 3*aniosVinc ){
                 status = "TITULAR";
-            }else if( (aniosExp<=10 && aniosExp<=20) || numPub >= 2*aniosVinc ){
+            }else if( (aniosExp>=10 && aniosExp<=20) || numPub >= 2*aniosVinc ){
                 status = "ASISTENTE";
             }
             alert("El man es Profesor "+status);
